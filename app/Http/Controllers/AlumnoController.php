@@ -80,9 +80,12 @@ class AlumnoController extends Controller
      */
     public function destroy(Alumno $alumno)
     {
-        $alumno->update(['estado' => 'aprobo']);
+        $alumno->update([
+            'estado' => 'inactivo'
+        ]);
 
         return redirect()->route('alumnos.index')
-            ->with('success', 'Alumno marcado como aprobado');
+            ->with('success', 'Alumno marcado como inactivo');
     }
+
 }
