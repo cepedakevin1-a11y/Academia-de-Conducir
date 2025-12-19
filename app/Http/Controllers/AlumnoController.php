@@ -54,7 +54,6 @@ class AlumnoController extends Controller
     }
 
 
-    // ELIMINACIÓN LÓGICA
     public function destroy(Alumno $alumno)
     {
         $alumno->update(['estado' => 'inactivo']);
