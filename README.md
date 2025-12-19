@@ -1,59 +1,91 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h2>Arquitectura MVC</h2>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<p>
+El proyecto fue desarrollado utilizando el patrón de arquitectura <strong>MVC (Modelo - Vista - Controlador)</strong>,
+lo que permite separar claramente la lógica del negocio, la presentación y el control de datos.
 </p>
 
-## About Laravel
+<ul>
+  <li><strong>Modelo (Model):</strong> Se encarga de la interacción con la base de datos.</li>
+  <li><strong>Vista (View):</strong> Maneja la interfaz gráfica que ve el usuario.</li>
+  <li><strong>Controlador (Controller):</strong> Gestiona la lógica y conecta el modelo con la vista.</li>
+</ul>
+<h2>   Capturas de como queda el MVC en el navegador</h2>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<h2>   Capturas de como queda la pagina rpincipal sin añadir nada</h2>
+       <img src="images/principal.png" width="600">
+<h2>   Capturas de como queeda la lista con un ingreso</h2>
+      <img src="images/lista.png" width="600">
+<h2>   Capturas de como es el formulario de ingreso</h2>
+      <img src="images/formulario.png" width="600">
+ <h2>   Capturas de como queda el formulario de ingreso</h2>
+      <img src="images/modificacion.png" width="600">
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+ <h2>Decisiones de Diseño</h2>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<ul>
+  <li>No se eliminan registros de alumnos por temas legales.</li>
+  <li>Se utiliza un campo <strong>estado</strong> para representar el avance del alumno.</li>
+  <li>La fecha de inscripción se genera automáticamente.</li>
+  <li>Se utiliza Bootstrap para asegurar compatibilidad móvil.</li>
+</ul>
 
-## Learning Laravel
+<h3>Modelo</h3>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+<p>
+El modelo <strong>Alumno</strong> representa la tabla <code>alumnos</code> en la base de datos y permite realizar
+operaciones CRUD mediante Eloquent ORM.
+</p>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<ul>
+  <li>Define los campos que pueden ser llenados masivamente.</li>
+  <li>Conecta directamente con la base de datos MySQL.</li>
+</ul>
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+<h3>Controlador</h3>
 
-### Premium Partners
+<p>
+El controlador <strong>AlumnoController</strong> gestiona la lógica del sistema, recibiendo las solicitudes del usuario,
+procesando la información y retornando las vistas correspondientes.
+</p>
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+<ul>
+  <li><strong>index:</strong> Muestra el listado de alumnos.</li>
+  <li><strong>create:</strong> Muestra el formulario de registro.</li>
+  <li><strong>store:</strong> Guarda un nuevo alumno.</li>
+  <li><strong>edit:</strong> Muestra el formulario de edición.</li>
+  <li><strong>update:</strong> Actualiza los datos del alumno.</li>
+</ul>
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<h3>Base de Datos</h3>
 
-## Code of Conduct
+<p>
+La base de datos utilizada es <strong>MySQL</strong>. La tabla principal es <code>alumnos</code>,
+creada mediante migraciones de Laravel.
+</p>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<ul>
+  <li>Nombre completo</li>
+  <li>Cédula (única)</li>
+  <li>Teléfono</li>
+  <li>Tipo de licencia</li>
+  <li>Estado del alumno</li>
+  <li>Fecha de inscripción automática</li>
+</ul>
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<h2>Repositorio GitHub</h2>
 
-## License
+<p>
+El proyecto se encuentra alojado en un repositorio público en GitHub:
+</p>
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<p>
+<a href="https://github.com/TU-USUARIO/academia-volante-seguro" target="_blank">
+Repositorio del Proyecto
+</a>
+</p>
+
+
