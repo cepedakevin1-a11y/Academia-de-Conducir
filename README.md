@@ -83,7 +83,7 @@ El proyecto se encuentra alojado en un repositorio público en GitHub:
 </p>
 
 <p>
-<a href="https://github.com/TU-USUARIO/academia-volante-seguro" target="_blank">
+<a href="https://github.com/cepedakevin1-a11y/Academia-de-Conducir.git">
 Repositorio del Proyecto
 </a>
 </p>
