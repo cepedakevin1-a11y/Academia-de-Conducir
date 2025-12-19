@@ -35,10 +35,26 @@
                 </span>
                     </td>
                     <td class="text-center">
-                        <a href="{{ route('alumnos.edit', $alumno) }}" class="btn btn-sm btn-warning">
-
+                        <a href="{{ route('alumnos.edit', $alumno) }}"
+                           class="btn btn-sm btn-warning">
+                            Editar
                         </a>
+
+                        @if($alumno->estado !== 'inactivo')
+                            <form action="{{ route('alumnos.destroy', $alumno) }}"
+                                  method="POST"
+                                  class="d-inline"
+                                  onsubmit="return confirm('¿Está seguro de marcar este alumno como inactivo?')">
+                                @csrf
+                                @method('DELETE')
+
+                                <button class="btn btn-sm btn-danger">
+                                    Inactivar
+                                </button>
+                            </form>
+                        @endif
                     </td>
+
                 </tr>
             @endforeach
             </tbody>
